@@ -19,9 +19,9 @@ int main(int argc, char *argv[]) {
 	printf("\np1 depois = %p", p1);
 	*/
 	Arvore * a = cria_arvore();
-	insere(177,a);
+	insere(17,a);
 	insere(34,a);
-	insere(2,a);
+	insere(6,a);
 	insere(5,a);
 	insere(9,a);
 	insere(41,a);
@@ -34,5 +34,14 @@ int main(int argc, char *argv[]) {
 	
 	
 	maiorValor(a);
+	
+	printf("Numero de nos: %d\n", verNos(a));
+	
+	pre_ordem(a);
+	
+	pos_ordem(a);
+	
+	
+	 
 	return 0;
 }
