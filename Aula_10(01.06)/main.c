@@ -23,17 +23,18 @@ int main(int argc, char *argv[]) {
 	insere(34,a);
 	insere(6,a);
 	insere(5,a);
-	insere(9,a);
-	insere(41,a);
-	insere(20,a);
-	insere(11,a);
+	//insere(9,a);
+	//insere(41,a);
+	//insere(20,a);
+	//insere(11,a);
 	insere(5,a);
-	insere(34,a);
-	insere(12,a);
+	//insere(34,a);
+	//insere(12,a);
 	mostra_em_ordem(a);
 	
-	
 	maiorValor(a);
+	
+	menorValor(a);
 	
 	printf("Numero de nos: %d\n", verNos(a));
 	
@@ -41,7 +42,10 @@ int main(int argc, char *argv[]) {
 	
 	pos_ordem(a);
 	
+	printf("\nAltura da arvore: %d", altura(a));
+	printf("\n Nos sem filhos: %d", folha(a));
 	
-	 
+	printf("\n pares: %d",pares(a));
+
 	return 0;
 }

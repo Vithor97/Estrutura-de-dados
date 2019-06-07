@@ -160,6 +160,32 @@ void maiorValor(Arvore *a){
 	 
 }
 
+//MATE------------------------------------------------------------------------------
+// --------------------------------------------- MENO ELEMETO DO NO -----------------------------------------------------------------------------
+int menorAux(No *atual){
+		if(atual->esq){ //if atual direita != NULL
+			 menorAux (atual->esq);
+		}
+		else{
+			//printf("%d maior\n",atual->info );
+			return atual->info;
+		}
+		
+}
+
+void menorValor(Arvore *a){
+	int i;
+	if(arvore_vazia(a)){
+		printf("arvore vazia\n");
+	}else{
+		i = menorAux(a->raiz);
+	}
+	
+	printf("MENOR: %d\n", i);
+	 
+}
+
+
 //---------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -181,4 +207,86 @@ int nosAux(No *atual){
 		return 0;
 }
 //---------------------------------------------------------------------------------------------------------------------------------------------
+
+int altura(Arvore *a){
+	if(arvore_vazia(a)){
+		return 0;
+	}
+	return altura_aux(a->raiz);
+}
+
+int altura_aux(No * atual){
+	int esq, dir;
+	if(!atual){
+		return 0;
+	}
+	else{
+		printf("\tesq: %d\t\n",esq );
+		esq = altura_aux(atual->esq);
+		dir = altura_aux(atual->dir);
+		
+		if(esq>dir){
+			return esq +1;
+		}
+		else{
+			return dir + 1;
+		}
+		
+	}
+}
+
+//------------------------Nos sem filhos de uma arvore----------------------------------------
+
+int folha(Arvore * a){
+	if(arvore_vazia(a)){
+		return 0;
+	}
+	return folha_aux(a->raiz);
+}
+
+int folha_aux(No * atual){
+	//printf("hhbu\n");
+	int total = 0;
+	if(!atual){
+		return 0;
+	}	
+	
+	if(atual->esq == NULL && atual->dir == NULL){
+		return 1;
+	}
+	else{
+		total = folha_aux(atual->esq) + folha_aux(atual->dir);
+		//printf("Total: %d ", total);
+		return total;
+	}
+
+		
+}
+
+int pares(Arvore * a){
+	if(arvore_vazia(a)){
+		return 0;
+	}
+	return par_aux(a->raiz);
+}
+
+int par_aux(No * atual){
+	int e, d;
+	if(atual){
+		if(atual->info%2==0){
+			if(atual->esq){
+				
+			}
+			e = par_aux(atual->esq)+1;
+			d = par_aux(atual->dir)+1;
+			
+		}
+		return (d+e);
+	}
+}
+
+
+
+
+
 
